@@ -815,6 +815,7 @@ static int qmi_wwan_bind(struct usbnet *dev, struct usb_interface *intf)
 	}
 	dev->net->netdev_ops = &qmi_wwan_netdev_ops;
 	dev->net->sysfs_groups[0] = &qmi_wwan_sysfs_attr_group;
+	dev->rx_urb_size = ETH_DATA_LEN + 4;
 err:
 	return status;
 }
